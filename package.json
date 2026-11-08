@@ -1,0 +1,62 @@
+{
+  "author": "Martin92yt",
+  "repository": { "type": "git", "url": "git+https://github.com/Martin92yt/gifuto-js.git" },
+  "homepage": "https://github.com/Martin92yt/gifuto-js#readme",
+  "bugs": { "url": "https://github.com/Martin92yt/gifuto-js/issues" },
+  "name": "gifuto.js",
+  "version": "0.1.0",
+  "description": "Official TypeScript client for the Gifuto API: curated, family-friendly anime GIFs for Discord bots.",
+  "keywords": [
+    "anime",
+    "gif",
+    "gifs",
+    "discord",
+    "discord-bot",
+    "api",
+    "hug",
+    "kiss",
+    "gifuto"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build",
+    "spec:update": "node scripts/update-spec.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  }
+}
